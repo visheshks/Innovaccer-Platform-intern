@@ -5,24 +5,29 @@ import subprocess as sp
 import imdb
 from imdb import IMDb
 
+
+#Function for creating Mysql Database
+
 def database():
     
 
-    mycursor.execute("Create database mhjh")
-    mycursor.execute("Use mhjh")
+    mycursor.execute("Create database tv_series_db")
+    mycursor.execute("Use tv_series_db")
 
     mycursor.execute("Create table input(email varchar(100), tv_series varchar(500))")
 
+
      
+#Function for Web Scrapping
 
 def scrapper(s):
     for x in s:
-        mov=tv.search_movie(x)[0]                            #Searching for The Movie                     
-        sid=tv.get_imdbID(mov)                               #fetching the Unique Series Id of Particular movie
+        mov=tv.search_movie(x)[0]                                              #Searching for the Tv Series, given by the user                     
+        sid=tv.get_imdbID(mov)                                                 #fetching the Unique Series Id of Particular TV_Series
         
         page = requests.get("https://www.imdb.com/title/tt{}".format(sid))
         soup = BeautifulSoup(page.content,'html.parser')
-        name_box=soup.findAll('div',attrs={'class':'seasons-and-year-nav'})
+        name_box=soup.findAll('div',attrs={'class':'seasons-and-year-nav'})    #The Given Class contains data of Seasons and Realease Year       
         value=[]
         for i in name_box:
             value=i.text.strip()
@@ -84,6 +89,7 @@ def scrapper(s):
 
 
 
+#Function for Sending mail to user via Ansible
 
 def mail():
     fh=open("/ws/mail.yml","w")
