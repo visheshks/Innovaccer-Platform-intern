@@ -1,0 +1,17 @@
+**It is assumed that python is installed your Laptop.
+**Also Python Package Manager(pip)
+ 
+1)Install Mysql Connector:
+  Go to the given link and then install it, according to your Laptop OS.
+
+  - https://dev.mysql.com/downloads/connector/python/
+
+2) Import the package installed and then establish the connection with Mysql 
+   database.
+
+3)Run the library_install.sh file to install the libraries required to run the 
+  code.
+
+4)Now, run the python code .
+
+
