@@ -4,17 +4,18 @@ import requests
 import subprocess as sp
 import imdb
 from imdb import IMDb
+import config_pass
 
 
 #Function for creating Mysql Database
 
-def database():
+#def database():
     
 
-    mycursor.execute("Create database tv_series_db")
-    mycursor.execute("Use tv_series_db")
+#    mycursor.execute("Create database tv_series_")
+ #   mycursor.execute("Use tv_series_")
 
-    mycursor.execute("Create table input(email varchar(100), tv_series varchar(500))")
+  #  mycursor.execute("Create table input(email varchar(100), tv_series varchar(500))")
 
 
      
@@ -99,9 +100,8 @@ def mail():
        - include_vars: "/ws/mail_output.yml"
        - mail:
            body: "{{var}}"
-           from: '16uec128@lnmiit.ac.in'
-           username: '16uec128@lnmiit.ac.in'
-           password: "nda0002319"
+           username: "config_pass.email"
+           password: "config_pass.password"
            subject: "Notification for your fav tv series"
            to: '{{id}}'
            host: smtp.gmail.com
@@ -112,9 +112,9 @@ def mail():
     sp.getoutput("sudo ansible-playbook /ws/mail.yml")
 
 
-conn=mysql.connector.connect(user='root',password='Redhatsql@98',host='localhost',auth_plugin='mysql_native_password')
+conn=mysql.connector.connect(user='root',password='Redhatsql@98',host='localhost',auth_plugin='mysql_native_password',database="My_database03")
 mycursor=conn.cursor()
-database()
+#database()
 tv=IMDb()
 while True:
     email=input("Email address: ")
@@ -124,6 +124,7 @@ while True:
     
 
     mycursor.execute("Insert into input(email,tv_series) values (%s,%s)",params)
+    conn.commit()
     mycursor.execute("select * from input")
     data=mycursor.fetchall()
     a=data[len(data)-1]
