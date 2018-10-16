@@ -6,22 +6,10 @@ import imdb
 from imdb import IMDb
 import config_pass
 
-
-#Function for creating Mysql Database
-
-#def database():
-    
-
-#    mycursor.execute("Create database tv_series_")
- #   mycursor.execute("Use tv_series_")
-
-  #  mycursor.execute("Create table input(email varchar(100), tv_series varchar(500))")
-
-
      
 #Function for Web Scrapping
 
-def scrapper(s):
+def imdb_webscrapper(s):
     for x in s:
         mov=tv.search_movie(x)[0]                                              #Searching for the Tv Series, given by the user                     
         sid=tv.get_imdbID(mov)                                                 #fetching the Unique Series Id of Particular TV_Series
@@ -100,6 +88,7 @@ def mail():
        - include_vars: "/ws/mail_output.yml"
        - mail:
            body: "{{var}}"
+           from: "config_pass.email"
            username: "config_pass.email"
            password: "config_pass.password"
            subject: "Notification for your fav tv series"
@@ -133,5 +122,6 @@ while True:
     fh=open('/ws/mail_output.yml','w')
     fh.write("var: |")
     
-    scrapper(s)
+    imdb_webscrapper(s)
     mail()
+    print("The E-mail is Sent")
