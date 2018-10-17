@@ -23,3 +23,5 @@ After taking the usefull data (.i.e. Last Season and its Data-Month-Year).It is 
 
 The Mail is Sent to User via Running **Ansible Playbook**.The Mail is Sent using **SMTP**,a protocol for sending E-mail messages between servers.The Final Output of Mail,for sending to User in the Playbook (YAML file)looks like:
 ![alt text](https://github.com/visheshks/Innovaccer-Platform-intern/blob/master/images/maildata.PNG)
+
+> Before Running the Program **Read setup.txt** file.
