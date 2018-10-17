@@ -8,9 +8,8 @@
    Go to the given link and then install it, according to your Laptop OS.
 
    - https://dev.mysql.com/downloads/connector/python/
-	
-   *** While Configuring Mysql connector via server,change the password which you gave while configuring in (inn_code.py in line number 104).
 
+***While Configuring Mysql connector via server,change the password which you gave in (sql_data.py) and then change that password      in (inn_code.py in line number 104)
 2) Run sql_data.py file,to create the database.
 
 3) Import the package installed and then establish the connection with Mysql 
