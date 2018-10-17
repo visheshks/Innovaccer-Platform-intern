@@ -88,7 +88,7 @@ def mail():
        - include_vars: "/ws/mail_output.yml"
        - mail:
            body: "{{var}}"
-           from: "config_pass.email"
+           from: 'config_pass.email'
            username: "config_pass.email"
            password: "config_pass.password"
            subject: "Notification for your fav tv series"
