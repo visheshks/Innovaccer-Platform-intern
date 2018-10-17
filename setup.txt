@@ -8,6 +8,8 @@
    Go to the given link and then install it, according to your Laptop OS.
 
    - https://dev.mysql.com/downloads/connector/python/
+	
+   *** While Configuring Mysql connector via server,change the password which you gave while configuring in (inn_code.py in line number 104).
 
 2) Run sql_data.py file,to create the database.
 
@@ -17,6 +19,8 @@
 4) Run the library_install.sh file to install the libraries required to run the 
   code.
 
-5) Now, run the python code (inn_code.py).
+5) Enter Your G-mail Id and Password for sending Mail to the User(in config_pass.py).
+
+6) Run inn_code.py(main python Script)
 
 
