@@ -23,4 +23,10 @@
 
 6) Run inn_code.py(main python Script)
 
+******** what Files Do: **********
+1) config_pass.py ->> Configuring Gmail Id and Password.
+2) library_install.sh ->> For installing Libraries.
+3) sql_data.py ->> For setting Database.(To be Run Only Once)
+4) inn_code.py ->> Main Python script.
+
 
